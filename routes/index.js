@@ -21,4 +21,17 @@ router.get('/', (req, res) => {
   });
 });
 
+router.post('/new', (req, res) => {
+  const messageUser = req.body.messageUser;
+  const messageText = req.body.messageText;
+
+  messages.push({
+    text: messageText,
+    user: messageUser,
+    aded: new Date(),
+  });
+
+  res.redirect('/');
+});
+
 module.exports = router;
