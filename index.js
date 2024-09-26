@@ -9,7 +9,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use('/', indexRouter);
-app.use('/new', newRouter);
+app.use('/form', newRouter);
 
 app.listen(PORT, () => {
   console.log(`listening to port ${PORT}...`);
