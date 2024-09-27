@@ -18,6 +18,14 @@ const getAllMessages = (req, res) => {
   });
 };
 
+const getMessageById = (req, res) => {
+  const messageId = req.params.id;
+
+  res.render('message', {
+    message: messages[messageId]
+  });
+}
+
 const addMessage = (req, res) => {
   const messageUser = req.body.messageUser;
   const messageText = req.body.messageText;
@@ -33,5 +41,6 @@ const addMessage = (req, res) => {
 
 module.exports = {
   getAllMessages,
+  getMessageById,
   addMessage
 }
