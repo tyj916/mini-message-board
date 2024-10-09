@@ -12,13 +12,6 @@ CREATE TABLE IF NOT EXISTS messages (
   username VARCHAR(255),
   added VARCHAR(100)
 );
-
-INSERT INTO messages 
-(text, username, added)
-VALUES
-  ('This is my first database', 'John', 'abc'),
-  ('This is my first project with database', 'Doe', 'acb'),
-  ('Yay!', 'Hooray', 'abc');
 `;
 
 async function main() {
