@@ -28,7 +28,10 @@ async function main() {
     database: PGDATABASE,
     username: PGUSER,
     password: PGPASSWORD,
-    port: 5432
+    port: 5432,
+    ssl: {
+      require: true,
+    }
   });
   await client.connect();
   await client.query(SQL);
