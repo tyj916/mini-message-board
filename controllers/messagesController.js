@@ -17,7 +17,11 @@ const getMessageById = async (req, res) => {
   });
 }
 
-const addMessage = async (req, res) => {
+const addMessageGet = (req, res) => {
+  res.render('form', { title: 'New Message Form' });
+}
+
+const addMessagePost = async (req, res) => {
   const messageUser = req.body.messageUser;
   const messageText = req.body.messageText;
 
@@ -33,5 +37,6 @@ const addMessage = async (req, res) => {
 module.exports = {
   getAllMessages,
   getMessageById,
-  addMessage
+  addMessageGet,
+  addMessagePost
 }
