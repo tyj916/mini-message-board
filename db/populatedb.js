@@ -8,13 +8,17 @@ const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  message TEXT );
+  text TEXT,
+  username VARCHAR(255),
+  added VARCHAR(100)
+);
 
-INSERT INTO messages (message)
+INSERT INTO messages 
+(text, username, added)
 VALUES
-  ('This is my first database'),
-  ('This is my first project with database'),
-  ('Yay!');
+  ('This is my first database', 'John', 'abc'),
+  ('This is my first project with database', 'Doe', 'acb'),
+  ('Yay!', 'Hooray', 'abc');
 `;
 
 async function main() {
@@ -24,10 +28,7 @@ async function main() {
     database: PGDATABASE,
     username: PGUSER,
     password: PGPASSWORD,
-    port: 5432,
-    ssl: {
-      require: true,
-    },
+    port: 5432
   });
   await client.connect();
   await client.query(SQL);
