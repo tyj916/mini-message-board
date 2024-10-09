@@ -1,14 +1,14 @@
 const db = require('../db/queries');
 
-const getAllMessages = async (req, res) => {
+async function getAllMessages(req, res) {
   const messages = await db.getAllMessages();
   res.render('index', { 
     title: "Mini Messageboard", 
     messages: messages,
   });
-};
+}
 
-const getMessageById = async (req, res) => {
+async function getMessageById(req, res) {
   const messageId = req.params.id;
   const message = await db.getMessageById(messageId);
 
@@ -17,11 +17,11 @@ const getMessageById = async (req, res) => {
   });
 }
 
-const addMessageGet = (req, res) => {
+function addMessageGet(req, res) {
   res.render('form', { title: 'New Message Form' });
 }
 
-const addMessagePost = async (req, res) => {
+async function addMessagePost(req, res) {
   const messageUser = req.body.messageUser;
   const messageText = req.body.messageText;
 
