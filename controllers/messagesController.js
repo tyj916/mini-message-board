@@ -12,13 +12,13 @@ async function getMessageById(req, res) {
   const messageId = req.params.id;
   const message = await db.getMessageById(messageId);
 
-  res.render('message', {
+  res.render('messageDetail', {
     message: message
   });
 }
 
 function addMessageGet(req, res) {
-  res.render('form', { title: 'New Message Form' });
+  res.render('newMessage', { title: 'New Message Form' });
 }
 
 async function addMessagePost(req, res) {
